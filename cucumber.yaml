@@ -1,13 +1,16 @@
 ---
 
-# default: -p html_report -p chrome
 default: -p ci
 
-ci: -p html_report -p chrome
-# allure: --format AllureCucumber::Formatter --out=logs/allure_report
+ci: -p allure -p json_report -p html_report -p chrome
+
+allure: --format progress --format AllureCucumber::Formatter --out=logs/allure_report
 
 html_report: --format progress --format html --out=logs/features.html
 json_report: --format progress --format json --out=logs/features.json
+
+
+#progress: --format progress
 
 chrome: BROWSERS=chrome
 firefox: BROWSERS=firefox

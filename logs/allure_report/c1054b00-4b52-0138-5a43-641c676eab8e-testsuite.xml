@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1584541427175" stop="1584541749239">
+  <name>Registro de Frequencia</name>
+  <title>Registro de Frequencia</title>
+  <test-cases>
+    <test-case start="1584541427180" stop="1584541749207" status="passed">
+      <name>Excluir registro de frequencia diario com sucesso</name>
+      <title>Excluir registro de frequencia diario com sucesso</title>
+      <steps>
+        <step start="1584541442017" stop="1584541442017" status="passed">
+          <name>Quando eu informo login "orlando.obsn" e senha "ctidpf" e clico pra acessar</name>
+          <title>Quando eu informo login "orlando.obsn" e senha "ctidpf" e clico pra acessar</title>
+          <attachments/>
+        </step>
+        <step start="1584541442017" stop="1584541444799" status="passed">
+          <name>E acesso o menu da Home</name>
+          <title>E acesso o menu da Home</title>
+          <attachments/>
+        </step>
+        <step start="1584541444799" stop="1584541453500" status="passed">
+          <name>E informo a Unidade "SST/DITEL/COINF/DTI/PF" e Servidor "ANDRE BUENO E SILVA JATOBA" e clico para pesquisar</name>
+          <title>E informo a Unidade "SST/DITEL/COINF/DTI/PF" e Servidor "ANDRE BUENO E SILVA JATOBA" e clico para pesquisar</title>
+          <attachments/>
+        </step>
+        <step start="1584541453500" stop="1584541747911" status="passed">
+          <name>E seleciono do primeiro dia util ate o ultimo dia util do mes para exclusao</name>
+          <title>E seleciono do primeiro dia util ate o ultimo dia util do mes para exclusao</title>
+          <attachments/>
+        </step>
+        <step start="1584541747911" stop="1584541747971" status="passed">
+          <name>Entao eu realizo a exclusao de um registro de frequencia manual mensal com sucesso</name>
+          <title>Entao eu realizo a exclusao de um registro de frequencia manual mensal com sucesso</title>
+          <attachments/>
+        </step>
+      </steps>
+      <attachments>
+        <attachment source="8ce28089869100873fc22a66b0e5c97d3012422652243e01089cc0d8d1a5a072-attachment.png" title="Clique aqui para ver o print da tela" size="39627" type="image/png"/>
+      </attachments>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="22051400"/>
+        <label name="host" value="DESKTOP-SIMNMG8"/>
+        <label name="feature" value="Registro de Frequencia"/>
+        <label name="story" value="Excluir registro de frequencia diario com sucesso"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="severity" value="normal"/>
+    <label name="thread" value="22051400"/>
+    <label name="host" value="DESKTOP-SIMNMG8"/>
+  </labels>
+</ns2:test-suite>

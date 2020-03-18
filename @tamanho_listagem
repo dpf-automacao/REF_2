@@ -1,0 +1,23 @@
+
+[1mFrom:[0m C:/automacao/REF_2/features/support/pages/004_configuracao_page.rb @ line 83 ConfiguracaoPage#consultar_uf_lotacao:
+
+    [1;34m77[0m: [32mdef[0m [1;34mconsultar_uf_lotacao[0m(uf, lotacao)
+    [1;34m78[0m: 
+    [1;34m79[0m:   @indice = [1;34m0[0m
+    [1;34m80[0m:   @indice2 = [1;34m1[0m
+    [1;34m81[0m:   @tamanho_listagem = consultar_uf_td.size
+    [1;34m82[0m:   puts @tamanho_listagem
+ => [1;34m83[0m:   binding.pry
+    [1;34m84[0m:   [32mwhile[0m (@indice < @tamanho_listagem)
+    [1;34m85[0m:     [32mif[0m (consultar_uf_td[@indice].text == uf && consultar_lotacao_td[@indice].text == lotacao)
+    [1;34m86[0m:       consultar_lotacao_td[@indice].hover
+    [1;34m87[0m:       @indice = @tamanho_listagem
+    [1;34m88[0m:       puts [31m[1;31m"[0m[31m#{@indice2}[0m[31m - #{consultar_uf_td[@indice].text}[0m[31m e #{consultar_lotacao_td[@indice].text}[0m[31m consta na lista[1;31m"[0m[31m[0m
+    [1;34m89[0m:     [32melse[0m
+    [1;34m90[0m:       puts [31m[1;31m"[0m[31m#{@indice2}[0m[31m - UF e lotacao nao encontrados[1;31m"[0m[31m[0m
+    [1;34m91[0m:     [32mend[0m
+    [1;34m92[0m:     @indice += [1;34m1[0m
+    [1;34m93[0m:     @indice2 += [1;34m1[0m
+    [1;34m94[0m:   [32mend[0m
+    [1;34m95[0m: [32mend[0m
+
