@@ -1,3 +1,4 @@
+
 class RegistroFrequenciaPage < SitePrism::Page
   elements :status_folha_td, "tbody[id*='opResumoMes'] td"
   elements :dias_do_mes, "tbody[id*='opRelatorio'] a"
@@ -11,9 +12,12 @@ class RegistroFrequenciaPage < SitePrism::Page
   element :anterior_btn, "div[class='fRight w77pc'] input[title='Anterior']"
   element :mes_ano_input, "input[id*='mesAnoId']"
   element :pesquisar_btn, "input[value='Pesquisar']"
-  elements :excluir_registro_manual_btn, "input[src='/ref/imagens/ico_excluir_cubo.gif']"
+  elements :excluir_registro_manual_btn, "input[src='/ref/imagens/ico_excluir_cubo.gif'][type='image']"
   elements :excluir_registro_automatico_btn, "tbody[id*='formInclusao'] input[src='/ref/imagens/ico_cancelar.gif']"
   element :msg_exclusao_reg_manual_sucesso_div, "div[id*='sucessGlobalDelete']"
+
+  element :load_modal, 'table[id="carregandoHomeContentTable"] img'
+  element :load, 'table[id*="carregandoTabelaRegistrosContentTable"] img'
   element :carregamento_exclusao_reg_automatico_img, "table[id*='carregandoTabelaRegistrosContentTable'] img[src='/ref/imagens/ajax-loader.gif']"
   element :salvar_btn, "input[value='Salvar']"
   element :fechar_btn, "table[id='modalIncluirRegistroContentTable'] input[value='Fechar']"
@@ -115,7 +119,7 @@ class RegistroFrequenciaPage < SitePrism::Page
   def fechar_modal_registro_frequencia
     puts "Fechando modal"
     fechar_btn.click
-    sleep(5)
+    sleep(1)
   end
 
   def excluir_registro_frequencia
@@ -125,23 +129,19 @@ class RegistroFrequenciaPage < SitePrism::Page
 
     if (has_excluir_registro_manual_btn?(wait: 3))
       @tamanho_registros = excluir_registro_manual_btn.size
+      
       while (@indice < @tamanho_registros)
+      wait_until_excluir_registro_manual_btn_visible
+
+      puts "Excluindo o registro: #{@indice}"
+
         excluir_registro_manual_btn[0].click
-        wait_until_msg_exclusao_reg_manual_sucesso_div_visible
-        sleep(5)
+        wait_until_load_invisible
+   
         @indice += 1
       end
     end
 
-    # if (has_excluir_registro_automatico_btn?(wait: 3))
-    #   @tamanho_registros = excluir_registro_automatico_btn.size
-    #   while (@indice < @tamanho_registros)
-    #     excluir_registro_automatico_btn[0].click
-    #     wait_until_carregamento_exclusao_reg_automatico_img_invisible
-    #     sleep(3)
-    #     @indice += 1
-    #   end
-    # end
   end
 
   def registrar_frequencia_mensal
@@ -157,8 +157,6 @@ class RegistroFrequenciaPage < SitePrism::Page
     @volta_almoco = "13:00"
     @saida_final = "18:00"
     @justificativa = "Teste Automacao registro mensal - Justificativa"
-
-    sleep(5)
 
     @tamanho_do_mes = dias_do_mes.size
 
@@ -191,6 +189,7 @@ class RegistroFrequenciaPage < SitePrism::Page
         preencher_justificativa(@justificativa)
         salvar_registro_frequencia
         fechar_modal_registro_frequencia
+        wait_until_load_modal_invisible
 
         @indice_reg += 1
       end
@@ -211,11 +210,11 @@ class RegistroFrequenciaPage < SitePrism::Page
     @saida_final = "18:00"
     @justificativa = "Teste Automacao registro mensal - Justificativa"
 
-    sleep(5)
+    sleep(2)
 
     @tamanho_do_mes = dias_do_mes.size
 
-    sleep(5)
+    sleep(2)
 
     while (@indice_reg < @tamanho_do_mes)
       if (dias_do_mes[@indice_reg].text.include?(@sabado) ||
@@ -224,14 +223,15 @@ class RegistroFrequenciaPage < SitePrism::Page
           dias_do_mes[@indice_reg].text.include?(@ponto_facultativo))
         @indice_reg += 1
       else
-        wait_until_dias_do_mes_visible
+        # wait_until_dias_do_mes_visible
         dias_do_mes[@indice_reg].click
         wait_until_registro_manual_frequencia_radio_visible
         sleep(1)
-
+        
         excluir_registro_frequencia
 
         fechar_modal_registro_frequencia
+        wait_until_load_modal_invisible
 
         @indice_reg += 1
       end
