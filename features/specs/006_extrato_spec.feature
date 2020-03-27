@@ -1,5 +1,4 @@
 #language:pt
-
 @all_extrato
 
 Funcionalidade: Extrato
@@ -12,7 +11,7 @@ Cenario: Gerenciar extrato
     E acessar o menu Extrato
     E acessar o submenu Gerenciar Extrato
     E selecionar a unidade "DPF/SJE/SP"
-    E selecionar nome do servidor "MAURICIO RAMOS LACERDA"
+    E selecionar nome do servidor "GLAUBER EMERSON SANTOS"
     E clicar em pesquisar
     Entao realizo pesquisa do extrato com sucesso
 

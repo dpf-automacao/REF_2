@@ -31,7 +31,7 @@ class ExtratoPage < SitePrism::Page
   def verificar_extrato
     puts "Verificando o Extrato Gerencial Analítico"
     wait_until_page_extrato_visible
-    page.assert_text("MAURICIO RAMOS LACERDA")
+    page.assert_text("GLAUBER EMERSON SANTOS")
   end
 
   # Meu Extrato
