@@ -37,7 +37,7 @@ Cenario: Realizar registro de frequencia mensal com sucesso
     Entao eu realizo a insercao do registro de frequencia mensal com sucesso
 
 @excluir_registro_frequencia_mensal
-Cenario: Excluir registro de frequencia diario com sucesso
+Cenario: Excluir registro de frequencia mensal com sucesso
     Quando eu informo login "orlando.obsn" e senha "ctidpf" e clico pra acessar
     E acesso o menu da Home
     E informo a Unidade "SST/DITEL/COINF/DTI/PF" e Servidor "ANDRE BUENO E SILVA JATOBA" e clico para pesquisar
